@@ -3,7 +3,7 @@ using Contacto.Utilities;
 
 namespace Contacto.Domain.Abstractions.EntityService;
 
-internal interface IApplicationUserService
+public interface IApplicationUserService
 {
     /// <summary>
     /// Function returns a jwt token as string

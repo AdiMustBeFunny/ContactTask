@@ -41,6 +41,7 @@ public class ApplicationUserService : IApplicationUserService
         var tokenDescriptor = new SecurityTokenDescriptor
         {
             Subject = new ClaimsIdentity([
+                new Claim(JwtRegisteredClaimNames.Sub, applicationUser.Id.ToString()),
                 new Claim(JwtRegisteredClaimNames.Name, applicationUser.Username)
             ]),
             Expires = DateTime.UtcNow.AddMinutes(10),
