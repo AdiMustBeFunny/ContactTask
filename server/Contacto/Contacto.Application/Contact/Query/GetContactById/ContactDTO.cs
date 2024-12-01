@@ -8,6 +8,6 @@ public record ContactDTO(
     string Email,
     DateOnly? BirthDate,
     Guid? ContactCategoryId,
-    Guid? ContactSubategoryId,
+    Guid? ContactSubCategoryId,
     string? customContactCategory
     );

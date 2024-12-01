@@ -9,8 +9,8 @@ namespace Contacto.DomainService
     {
         public static IServiceCollection RegisterDomainServices(this IServiceCollection services)
         {
-            services.AddScoped<IPasswordService, PasswordService>();
-            services.AddScoped<IApplicationUserService, ApplicationUserService>();
+            services.AddSingleton<IPasswordService, PasswordService>();
+            services.AddSingleton<IApplicationUserService, ApplicationUserService>();
             services.AddScoped<IContactEntityService, ContactEntityService>();
 
             return services;

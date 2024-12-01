@@ -9,9 +9,11 @@ internal sealed class AuthenticateUserCommandHandler : ICommandHandler<Authentic
 {
     private readonly IAppDbContext _appDbContext;
     private readonly IApplicationUserService _applicationUserService;
-    public AuthenticateUserCommandHandler(IAppDbContext appDbContext)
+
+    public AuthenticateUserCommandHandler(IAppDbContext appDbContext, IApplicationUserService applicationUserService)
     {
         _appDbContext = appDbContext;
+        _applicationUserService = applicationUserService;
     }
 
     public async Task<Result<AuthenticateUserResultDTO>> Handle(AuthenticateUserCommand request, CancellationToken cancellationToken)

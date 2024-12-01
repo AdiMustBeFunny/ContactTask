@@ -19,12 +19,5 @@ namespace Contacto.Infrastructure
         {
             return await base.SaveChangesAsync(cancellationToken);
         }
-
-        protected override void OnModelCreating(ModelBuilder modelBuilder)
-        {
-            modelBuilder.Entity<ContactCategory>().HasData(
-                
-            );
-        }
     }
 }

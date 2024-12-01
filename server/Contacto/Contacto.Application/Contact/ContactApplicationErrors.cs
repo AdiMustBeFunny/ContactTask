@@ -12,5 +12,5 @@ public class ContactApplicationErrors
     public static readonly Error ContactCategoryDoesntExist = new(ContactCategoryDoesntExistId, "Contact category doesn't exist");
 
     public static readonly string ContactSubCategoryDoesntExistId = $"{nameof(ContactApplicationErrors)}.{nameof(ContactSubCategoryDoesntExist)}";
-    public static readonly Error ContactSubCategoryDoesntExist = new(ContactSubCategoryDoesntExistId, "Contact sub-category doesn't exist");
+    public static readonly Error ContactSubCategoryDoesntExist = new(ContactSubCategoryDoesntExistId, "Contact category doesnt have a sub-category with given id");
 }

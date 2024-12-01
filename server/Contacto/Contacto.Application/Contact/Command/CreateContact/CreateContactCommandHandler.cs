@@ -1,5 +1,4 @@
-﻿using Contacto.Application.User;
-using Contacto.Domain.Abstractions;
+﻿using Contacto.Domain.Abstractions;
 using Contacto.Domain.Abstractions.EntityService;
 using Contacto.Domain.Entities;
 using Contacto.Utilities;
