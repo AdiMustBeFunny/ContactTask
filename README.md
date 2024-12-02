@@ -41,3 +41,14 @@ cd client/contacto-portal
 npm ci
 npx nx serve
 ```
+
+## External libraries
+1. Backend
+    - Mediatr
+    - EntityFrameworkCore
+    - Xunit
+2. Frontend
+    - angular
+    - nx
+    - @auth0/angular-jwt
+
