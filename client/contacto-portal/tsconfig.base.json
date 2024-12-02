@@ -1,0 +1,35 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "rootDir": ".",
+    "sourceMap": true,
+    "declaration": false,
+    "moduleResolution": "node",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "importHelpers": true,
+    "target": "es2022",
+    "module": "esnext",
+    "lib": ["es2020", "dom"],
+    "skipLibCheck": true,
+    "skipDefaultLibCheck": true,
+    "baseUrl": ".",
+    "paths": {
+      "@contacto-portal/auth-api-service": [
+        "lib/auth/data-access/auth-api-service/src/index.ts"
+      ],
+      "@contacto-portal/auth-component": [
+        "lib/auth/features/auth-component/src/index.ts"
+      ],
+      "@contacto-portal/contact-details": [
+        "lib/contact/features/contact-details/src/index.ts"
+      ],
+      "@contacto-portal/contact-list": [
+        "lib/contact/features/contact-list/src/index.ts"
+      ],
+      "@contacto-portal/data-access": ["lib/contact/data-access/src/index.ts"],
+      "@contacto-portal/data-model": ["lib/contact/data-model/src/index.ts"]
+    }
+  },
+  "exclude": ["node_modules", "tmp"]
+}

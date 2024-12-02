@@ -104,5 +104,8 @@ app.UseAuthentication();
 app.UseAuthorization();
 
 app.UseExceptionHandler(o => { });
-
+app.UseCors(cors =>
+{
+    cors.WithOrigins(builder.Configuration["Cors:Origin"]!).AllowAnyMethod().AllowAnyHeader();
+});
 app.Run();

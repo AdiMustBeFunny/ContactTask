@@ -1,0 +1,87 @@
+<p>Contact Form</p>
+<div style="margin-bottom: 1rem;">
+    <button (click)="backToContactList()" >Back to list</button>
+</div>
+<div>
+    <label for="name">
+        Name:
+        <input id="name" type="text" [(ngModel)]="name" [readOnly]="!(userAuthenticated$ | async)"/>
+    </label>
+</div>
+@if (!id()) {
+    <div>
+        <label for="contactPassword">
+            Password:
+            <input id="contactPassword" type="password" [(ngModel)]="password" [readOnly]="!(userAuthenticated$ | async)"/>
+        </label>
+    </div>
+}
+<div>
+    <label for="surname">
+        Surname:
+        <input id="surname" type="text" [(ngModel)]="surname" [readOnly]="!(userAuthenticated$ | async)"/>
+    </label>
+</div>
+<div>
+    <label for="phone">
+        Phone:
+        <input id="phone" type="text" [(ngModel)]="phoneNumber" [readOnly]="!(userAuthenticated$ | async)"/>
+    </label>
+</div>
+<div>
+    <label for="email">
+        Email:
+        <input id="email" type="text" [(ngModel)]="email" [readOnly]="!(userAuthenticated$ | async)"/>
+    </label>
+</div>
+<div>
+    <label for="birthDate">
+        Birthdate:
+        <input #datePicker id="birthDate" type="date" [(ngModel)]="birthDate" [readOnly]="!(userAuthenticated$ | async)"/>
+    </label>
+</div>
+<div>
+    <label for="contactCategory">
+        Contact category:
+        <select [(ngModel)]="contactCategoryId" (change)="categoryChanged()" [disabled]="!(userAuthenticated$ | async)">
+        @for (contactCategory of contactCategories(); track contactCategory.id) 
+        {
+            <option [value]="contactCategory.id">{{contactCategory.title}}</option>
+        }
+        </select>
+    </label>
+</div>
+@if (subCategories().length > 0) 
+{
+    <div>
+        <label for="contactCategory">
+            Contact sub-category:
+            <select [(ngModel)]="contactSubCategoryId" [disabled]="!(userAuthenticated$ | async)">
+            @for (contactCategory of subCategories(); track contactCategory.id) 
+            {
+                <option [value]="contactCategory.id">{{contactCategory.title}}</option>
+            }
+            </select>
+        </label>
+    </div>
+}
+@if(showCustomCategory())
+{
+    <div>
+        <label for="customCategory">
+            Custom sub-category:
+            <input id="customCategory" type="text" [(ngModel)]="customContactCategory" [readOnly]="!(userAuthenticated$ | async)"/>
+        </label>
+    </div>
+}
+@if (errorMessage()) {
+    <div>
+        Error: <span style="color: red;">{{errorMessage()}}</span>
+    </div>
+}
+<div>
+    @if (userAuthenticated$ | async) 
+    {
+        <button (click)="saveContact()" >Save</button>
+    }
+</div>

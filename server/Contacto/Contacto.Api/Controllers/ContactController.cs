@@ -3,6 +3,7 @@ using Contacto.Api.Request.Contact;
 using Contacto.Application.Contact;
 using Contacto.Application.Contact.Command.ChangeContactPassword;
 using Contacto.Application.Contact.Command.CreateContact;
+using Contacto.Application.Contact.Command.DeleteContact;
 using Contacto.Application.Contact.Command.EditContact;
 using Contacto.Application.Contact.Query.GetContactById;
 using Contacto.Application.Contact.Query.GetContactCategories;
@@ -42,6 +43,16 @@ public class ContactController : BaseApiController
     {
         var query = new GetContactByIdQuery(contactId);
         var result = await _mediator.Send(query);
+        return MapResponse(result, StatusCodes.Status200OK);
+    }
+
+    [Authorize]
+    [HttpDelete("{contactId}")]
+    [ProducesResponseType(StatusCodes.Status200OK)]
+    public async Task<IActionResult> DeleteContact(Guid contactId)
+    {
+        var command = new DeleteContactCommand(contactId);
+        var result = await _mediator.Send(command);
         return MapResponse(result, StatusCodes.Status200OK);
     }
 

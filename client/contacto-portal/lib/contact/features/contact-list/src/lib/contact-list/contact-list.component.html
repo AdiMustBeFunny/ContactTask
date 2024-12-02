@@ -1,0 +1,22 @@
+<p>Contact List</p>
+<div>
+    @if(userAuthenticated$ | async)
+    {
+        <button (click)="addNewContact()">Add new contact</button>
+    }
+</div>
+@for (contact of contactList$ | async; track contact.contactId) {
+    <div style="border-bottom: 2px solid black;">
+        <div>{{contact.name}}</div>
+        <div>{{contact.surname}}</div>
+        <div>{{contact.phoneNumber}}</div>
+
+        <div>
+            <button (click)="showContact(contact.contactId)" >View</button>
+            @if(userAuthenticated$ | async)
+            {
+                <button (click)="deleteContact(contact.contactId)" >Delete</button>
+            }
+        </div>
+    </div>
+}
